@@ -1,10 +1,17 @@
-// Play video on mouseover, pause on mouseout for all project videos
-document.querySelectorAll('.project-vidbox video').forEach(function(video) {
-    video.addEventListener('mouseover', function() {
+const video1 = document.getElementById('projectvideo1');
+const video2 = document.getElementById('projectvideo2');
+const video3 = document.getElementById('projectvideo3');
+const hoverSign = document.querySelector('.hover-sign');
+
+const videoList =[video1, video2, video3];
+
+videoList.forEach(function(video){
+    video.addEventListener('mouseover', function(){
         video.play();
-    });
-    video.addEventListener('mouseout', function() {
+        hoverSign.classList.add("active");
+    })
+    video.addEventListener('mouseout', function(){
         video.pause();
-        video.currentTime = 0; // Optional: reset to start
-    });
-});
+        hoverSign.classList.remove("active");
+    })
+})
